@@ -1,0 +1,32 @@
+[data-theme="dark"] {
+  --bg:       #111111;
+  --black:    #f0eeea;
+  --off-black:#e0ddd8;
+  --mid:      #999999;
+  --light:    #555555;
+  --rule:     #2a2a2a;
+  --white:    #111111;
+  --hover-bg: #1c1c1c;
+  --overlay:  rgba(240, 238, 234, 0.12);
+}
+
+[data-theme="dark"] body {
+  background: #111111;
+}
+
+[data-theme="dark"] .nav {
+  background: rgba(17, 17, 17, 0.92);
+}
+
+[data-theme="dark"] .nav.scrolled {
+  background: rgba(17, 17, 17, 0.98);
+  border-bottom-color: #2a2a2a;
+}
+
+[data-theme="dark"] .nav__mobile-menu {
+  background: #111111;
+}
+
+[data-theme="dark"] .work-grid__overlay-title {
+  color: #f0eeea;
+}

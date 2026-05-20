@@ -1,0 +1,62 @@
+[data-theme="bold"] {
+  --bg:           #ffffff;
+  --black:        #000000;
+  --off-black:    #000000;
+  --mid:          #333333;
+  --light:        #555555;
+  --rule:         #000000;
+  --white:        #ffffff;
+  --hover-bg:     #f0f0f0;
+  --overlay:      rgba(0, 0, 0, 0.6);
+  --font-display: 'Jost', 'Helvetica Neue', Arial, sans-serif;
+}
+
+[data-theme="bold"] body {
+  background: #ffffff;
+}
+
+[data-theme="bold"] .nav {
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 2px solid #000;
+}
+
+[data-theme="bold"] .nav.scrolled {
+  background: rgba(255, 255, 255, 1);
+  border-bottom-color: #000;
+}
+
+[data-theme="bold"] .nav__mobile-menu {
+  background: #ffffff;
+}
+
+[data-theme="bold"] .about__statement,
+[data-theme="bold"] .hero__heading,
+[data-theme="bold"] .work__title,
+[data-theme="bold"] .news__title,
+[data-theme="bold"] .news-page__item-title,
+[data-theme="bold"] .article-header__title,
+[data-theme="bold"] .project-info__code,
+[data-theme="bold"] .philosophy__quote,
+[data-theme="bold"] .work-page__title,
+[data-theme="bold"] .news-page__title {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+[data-theme="bold"] .section-label,
+[data-theme="bold"] .news__date,
+[data-theme="bold"] .news-page__date,
+[data-theme="bold"] .project-info__category,
+[data-theme="bold"] .article-header__date {
+  font-weight: 700;
+  color: #000;
+}
+
+[data-theme="bold"] .work__header,
+[data-theme="bold"] .news__header {
+  border-bottom: 2px solid #000;
+}
+
+[data-theme="bold"] .project-info {
+  border-bottom: 2px solid #000;
+}

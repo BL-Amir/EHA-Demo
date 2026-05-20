@@ -1,0 +1,28 @@
+[data-theme="warm"] {
+  --bg:       #f5f0e8;
+  --black:    #1c1208;
+  --off-black:#2a1f14;
+  --mid:      #7a6355;
+  --light:    #b09a88;
+  --rule:     #ddd5c8;
+  --white:    #f5f0e8;
+  --hover-bg: #ede5d8;
+  --overlay:  rgba(28, 18, 8, 0.45);
+}
+
+[data-theme="warm"] body {
+  background: #f5f0e8;
+}
+
+[data-theme="warm"] .nav {
+  background: rgba(245, 240, 232, 0.92);
+}
+
+[data-theme="warm"] .nav.scrolled {
+  background: rgba(245, 240, 232, 0.98);
+  border-bottom-color: #ddd5c8;
+}
+
+[data-theme="warm"] .nav__mobile-menu {
+  background: #f5f0e8;
+}
