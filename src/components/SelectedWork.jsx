@@ -31,7 +31,6 @@ export default function SelectedWork() {
   return (
     <section className="work" id="work">
       <div className="work__header">
-        <span className="section-label">Selected Portfolio</span>
         <Link to="/work" className="work__view-all">View all</Link>
       </div>
       <div className="work__grid">

@@ -299,7 +299,6 @@ img {
   background: var(--bg);
   border-bottom: 1px solid transparent;
   transition:
-    height 0.55s cubic-bezier(0.33, 0, 0.18, 1),
     border-color 0.3s var(--ease),
     background 0.3s var(--ease),
     opacity 0.65s cubic-bezier(0.33, 0, 0.18, 1),
@@ -325,7 +324,6 @@ img {
 }
 
 .nav.scrolled {
-  height: 88px;
   border-bottom-color: var(--rule);
 }
 
@@ -755,7 +753,7 @@ img {
 .work__header {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-bottom: 4rem;
 }
 

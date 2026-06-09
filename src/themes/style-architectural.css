@@ -39,7 +39,6 @@
 }
 
 [data-style="architectural"] .nav.scrolled {
-  height: 88px;
   border-bottom-color: transparent;
   box-shadow: none;
 }
@@ -393,10 +392,6 @@
 
   [data-style="architectural"] .nav {
     height: 96px;
-  }
-
-  [data-style="architectural"] .nav.scrolled {
-    height: 78px;
   }
 
   [data-style="architectural"] .nav__logo-img {
