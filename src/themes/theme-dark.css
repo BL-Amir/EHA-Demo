@@ -1,4 +1,52 @@
 [data-theme="dark"] {
+  --bg:       #10100e;
+  --black:    #f2f0eb;
+  --off-black:#e4e0d8;
+  --mid:      #aaa49a;
+  --light:    #6f6a62;
+  --rule:     rgba(242, 240, 235, 0.14);
+  --white:    #10100e;
+  --hover-bg: #181815;
+  --overlay:  rgba(242, 240, 235, 0.12);
+  --news-rule: rgba(242, 240, 235, 0.16);
+  --news-graphic-wash: rgba(242, 240, 235, 0.045);
+  --news-line: rgba(242, 240, 235, 0.34);
+  --news-line-strong: rgba(242, 240, 235, 0.62);
+  --news-line-soft: rgba(242, 240, 235, 0.16);
+  --news-line-fine: rgba(242, 240, 235, 0.1);
+}
+
+[data-theme="dark"] body {
+  background: #10100e;
+}
+
+[data-theme="dark"] .nav {
+  background: rgba(16, 16, 14, 0.92);
+}
+
+[data-theme="dark"] .nav.scrolled {
+  background: rgba(16, 16, 14, 0.98);
+  border-bottom-color: rgba(242, 240, 235, 0.14);
+}
+
+[data-theme="dark"] .nav__logo-img {
+  filter: brightness(0) invert(1);
+}
+
+[data-theme="dark"] .shared-logo--docking .loading-brand__wordmark,
+[data-theme="dark"] .shared-logo--docked .loading-brand__wordmark {
+  filter: brightness(0) invert(1) blur(0);
+}
+
+[data-theme="dark"] .nav__mobile-menu {
+  background: #10100e;
+}
+
+[data-theme="dark"] .work-grid__overlay-title {
+  color: #f2f0eb;
+}
+
+[data-theme="classic-dark"] {
   --bg:       #111111;
   --black:    #f0eeea;
   --off-black:#e0ddd8;
@@ -8,25 +56,40 @@
   --white:    #111111;
   --hover-bg: #1c1c1c;
   --overlay:  rgba(240, 238, 234, 0.12);
+  --news-rule: rgba(240, 238, 234, 0.16);
+  --news-graphic-wash: rgba(240, 238, 234, 0.045);
+  --news-line: rgba(240, 238, 234, 0.34);
+  --news-line-strong: rgba(240, 238, 234, 0.62);
+  --news-line-soft: rgba(240, 238, 234, 0.16);
+  --news-line-fine: rgba(240, 238, 234, 0.1);
 }
 
-[data-theme="dark"] body {
+[data-theme="classic-dark"] body {
   background: #111111;
 }
 
-[data-theme="dark"] .nav {
+[data-theme="classic-dark"] .nav {
   background: rgba(17, 17, 17, 0.92);
 }
 
-[data-theme="dark"] .nav.scrolled {
+[data-theme="classic-dark"] .nav.scrolled {
   background: rgba(17, 17, 17, 0.98);
   border-bottom-color: #2a2a2a;
 }
 
-[data-theme="dark"] .nav__mobile-menu {
+[data-theme="classic-dark"] .nav__logo-img {
+  filter: brightness(0) invert(1);
+}
+
+[data-theme="classic-dark"] .shared-logo--docking .loading-brand__wordmark,
+[data-theme="classic-dark"] .shared-logo--docked .loading-brand__wordmark {
+  filter: brightness(0) invert(1) blur(0);
+}
+
+[data-theme="classic-dark"] .nav__mobile-menu {
   background: #111111;
 }
 
-[data-theme="dark"] .work-grid__overlay-title {
+[data-theme="classic-dark"] .work-grid__overlay-title {
   color: #f0eeea;
 }

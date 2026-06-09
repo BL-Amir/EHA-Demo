@@ -1,4 +1,35 @@
-export const projects = [
+const forthcomingProjects = [
+  {
+    code: 'Project 06',
+    slug: 'project-06',
+    category: 'Coming Soon',
+    tagline: 'New project imagery coming soon',
+    placeholder: true,
+  },
+  {
+    code: 'Project 07',
+    slug: 'project-07',
+    category: 'Coming Soon',
+    tagline: 'New project imagery coming soon',
+    placeholder: true,
+  },
+  {
+    code: 'Project 08',
+    slug: 'project-08',
+    category: 'Coming Soon',
+    tagline: 'New project imagery coming soon',
+    placeholder: true,
+  },
+  {
+    code: 'Project 09',
+    slug: 'project-09',
+    category: 'Coming Soon',
+    tagline: 'New project imagery coming soon',
+    placeholder: true,
+  },
+]
+
+export const realProjects = [
   {
     code: '18 WHG',
     slug: '18-whg',
@@ -41,8 +72,9 @@ export const projects = [
       { role: 'Interior Design', name: 'EH Architects' },
       { role: 'Photography', name: 'TBC' },
     ],
-    coverImg: '/assets/images/242 WL WEBSITE SELECTION/_DSC4572-HDR.jpg',
+    coverImg: '/assets/images/242 WL WEBSITE SELECTION/_DSC4907.jpg',
     images: [
+      '/assets/images/242 WL WEBSITE SELECTION/_DSC4907.jpg',
       '/assets/images/242 WL WEBSITE SELECTION/_DSC4572-HDR.jpg',
       '/assets/images/242 WL WEBSITE SELECTION/_DSC4602-HDR.jpg',
       '/assets/images/242 WL WEBSITE SELECTION/_DSC4651-HDR.jpg',
@@ -71,8 +103,9 @@ export const projects = [
       { role: 'Interior Design', name: 'EH Architects' },
       { role: 'Photography', name: 'TBC' },
     ],
-    coverImg: '/assets/images/50 CR WEBSITE SELECTION/_DSC3433.jpg',
+    coverImg: '/assets/images/50 CR WEBSITE SELECTION/_DSC3757.jpg',
     images: [
+      '/assets/images/50 CR WEBSITE SELECTION/_DSC3757.jpg',
       '/assets/images/50 CR WEBSITE SELECTION/_DSC3433.jpg',
       '/assets/images/50 CR WEBSITE SELECTION/_DSC3445.jpg',
       '/assets/images/50 CR WEBSITE SELECTION/_DSC3450.jpg',
@@ -91,6 +124,33 @@ export const projects = [
     ],
   },
   {
+    code: '27 WA',
+    slug: '27-wa',
+    category: 'Residential',
+    tagline: 'Space reimagined, West London',
+    brief: 'A whole-house renovation in West London, transforming a tired semi-detached property into a calm, well-considered family home. The design prioritises natural light, a restrained material palette, and the creation of generous, well-proportioned living spaces.',
+    collaborators: [
+      { role: 'Interior Design', name: 'EH Architects' },
+      { role: 'Photography', name: 'TBC' },
+    ],
+    coverImg: '/assets/images/27 WA WEBSITE SELECTION/_DSC7447.jpg',
+    images: [
+      '/assets/images/27 WA WEBSITE SELECTION/_DSC7447.jpg',
+      '/assets/images/27 WA WEBSITE SELECTION/_DSC7435.jpg',
+      '/assets/images/27 WA WEBSITE SELECTION/_DSC7420.jpg',
+      '/assets/images/27 WA WEBSITE SELECTION/_DSC7145-HDR.jpg',
+      '/assets/images/27 WA WEBSITE SELECTION/_DSC7148-HDR.jpg',
+      '/assets/images/27 WA WEBSITE SELECTION/_DSC7179.jpg',
+      '/assets/images/27 WA WEBSITE SELECTION/_DSC7200-HDR.jpg',
+      '/assets/images/27 WA WEBSITE SELECTION/_DSC7227-HDR.jpg',
+      '/assets/images/27 WA WEBSITE SELECTION/_DSC7275-HDR.jpg',
+      '/assets/images/27 WA WEBSITE SELECTION/_DSC7302-HDR.jpg',
+      '/assets/images/27 WA WEBSITE SELECTION/_DSC7344-HDR.jpg',
+      '/assets/images/27 WA WEBSITE SELECTION/_DSC7389-HDR.jpg',
+      '/assets/images/27 WA WEBSITE SELECTION/_DSC7413-HDR.jpg',
+    ],
+  },
+  {
     code: '15B BR',
     slug: '15b-br',
     category: 'Residential',
@@ -100,7 +160,7 @@ export const projects = [
       { role: 'Interior Design', name: 'EH Architects' },
       { role: 'Photography', name: 'TBC' },
     ],
-    coverImg: '/assets/images/15B BR WEBSITE SELECTION/_DSC3922-HDR.jpg',
+    coverImg: '/assets/images/15B BR WEBSITE SELECTION/IMG-20260520-WA0001.jpg',
     images: [
       '/assets/images/15B BR WEBSITE SELECTION/_DSC3922-HDR.jpg',
       '/assets/images/15B BR WEBSITE SELECTION/_DSC3940-HDR.jpg',
@@ -119,30 +179,9 @@ export const projects = [
       '/assets/images/15B BR WEBSITE SELECTION/IMG-20260520-WA0005.jpg',
     ],
   },
-  {
-    code: '27 WA',
-    slug: '27-wa',
-    category: 'Residential',
-    tagline: 'Space reimagined, West London',
-    brief: 'A whole-house renovation in West London, transforming a tired semi-detached property into a calm, well-considered family home. The design prioritises natural light, a restrained material palette, and the creation of generous, well-proportioned living spaces.',
-    collaborators: [
-      { role: 'Interior Design', name: 'EH Architects' },
-      { role: 'Photography', name: 'TBC' },
-    ],
-    coverImg: '/assets/images/27 WA WEBSITE SELECTION/_DSC7145-HDR.jpg',
-    images: [
-      '/assets/images/27 WA WEBSITE SELECTION/_DSC7145-HDR.jpg',
-      '/assets/images/27 WA WEBSITE SELECTION/_DSC7148-HDR.jpg',
-      '/assets/images/27 WA WEBSITE SELECTION/_DSC7179.jpg',
-      '/assets/images/27 WA WEBSITE SELECTION/_DSC7200-HDR.jpg',
-      '/assets/images/27 WA WEBSITE SELECTION/_DSC7227-HDR.jpg',
-      '/assets/images/27 WA WEBSITE SELECTION/_DSC7275-HDR.jpg',
-      '/assets/images/27 WA WEBSITE SELECTION/_DSC7302-HDR.jpg',
-      '/assets/images/27 WA WEBSITE SELECTION/_DSC7344-HDR.jpg',
-      '/assets/images/27 WA WEBSITE SELECTION/_DSC7389-HDR.jpg',
-      '/assets/images/27 WA WEBSITE SELECTION/_DSC7413-HDR.jpg',
-      '/assets/images/27 WA WEBSITE SELECTION/_DSC7420.jpg',
-      '/assets/images/27 WA WEBSITE SELECTION/_DSC7435.jpg',
-    ],
-  },
+]
+
+export const projects = [
+  ...realProjects,
+  ...forthcomingProjects,
 ]

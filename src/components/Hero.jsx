@@ -17,14 +17,15 @@ export default function Hero() {
       </div>
 
       <div className="hero__text">
-        <span className="hero__label">Architecture &amp; Design</span>
-        <h1 className="hero__heading">Space.<br />Considered.</h1>
-        <Link to="/work" className="hero__cta">View Our Work</Link>
+        <span className="hero__label">Architects, Masterplanners &amp; Designers</span>
+        <div className="hero__statement">
+          <a href="#work" className="hero__scroll-cue" aria-label="Scroll down">
+            <span className="hero__scroll-line"></span>
+          </a>
+          <h1 className="hero__heading">Architecture<br />with Intention.</h1>
+        </div>
+        <Link to="/work" className="hero__cta">View Portfolio</Link>
       </div>
-
-      <a href="#work" className="hero__scroll-cue" aria-label="Scroll down">
-        <span className="hero__scroll-line"></span>
-      </a>
     </section>
   )
 }

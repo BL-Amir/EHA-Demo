@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 760" width="920" height="760" role="img" aria-label="Geometric monogram recreated from sketch">
+  <title>Geometric monogram</title>
+  <desc>Recreated from the provided sketch using four stroke groups in the requested order, with the bottom stroke adjusted.</desc>
+  <rect width="100%" height="100%" fill="none"/>
+
+  <!-- Stroke 1: bottom-left base -->
+  <g id="stroke-1" fill="#333333">
+    <polygon points="118,683 412,683 434,735 96,735"/>
+  </g>
+
+  <!-- Stroke 2: left rising diagonal -->
+  <g id="stroke-2" fill="#333333">
+    <polygon points="96,735 357,69 384,69 406,135 182,682"/>
+  </g>
+
+  <!-- Stroke 3: both upper/slanted strokes -->
+  <g id="stroke-3" fill="#333333">
+    <polygon points="357,69 384,69 612,735 555,735 339,135"/>
+    <polygon points="503,69 557,69 813,735 758,735"/>
+  </g>
+
+  <!-- Stroke 4: horizontal crossbar drawn on top -->
+  <g id="stroke-4" fill="#333333">
+    <polygon points="110,449 782,449 804,502 91,502"/>
+  </g>
+</svg>

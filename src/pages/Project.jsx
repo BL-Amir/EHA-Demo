@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useParams, Link, Navigate } from 'react-router-dom'
-import { projects } from '../data/projects'
+import { realProjects } from '../data/projects'
 import Footer from '../components/Footer'
 import Lightbox from '../components/Lightbox'
 import { useScrollReveal } from '../hooks/useScrollReveal'
@@ -10,15 +10,15 @@ export default function Project() {
   const [lightboxIndex, setLightboxIndex] = useState(null)
   const [moreOpen, setMoreOpen] = useState(false)
 
-  const idx = projects.findIndex(p => p.slug === slug)
+  const idx = realProjects.findIndex(p => p.slug === slug)
 
   if (idx === -1) {
     return <Navigate to="/work" replace />
   }
 
-  const project = projects[idx]
-  const prev = idx > 0 ? projects[idx - 1] : null
-  const next = idx < projects.length - 1 ? projects[idx + 1] : null
+  const project = realProjects[idx]
+  const prev = idx > 0 ? realProjects[idx - 1] : null
+  const next = idx < realProjects.length - 1 ? realProjects[idx + 1] : null
 
   const hero = project.images[0]
   const rest = project.images.slice(1)
@@ -58,7 +58,7 @@ export default function Project() {
           <h1 className="project-info__code">{project.code}</h1>
           <span className="project-info__category">{project.category}</span>
         </div>
-        <Link to="/work" className="project-info__back">← All Work</Link>
+        <Link to="/work" className="project-info__back">&larr; All Portfolio</Link>
       </div>
 
       <div className="project-brief">
@@ -70,7 +70,7 @@ export default function Project() {
               className="project-more-info__toggle"
               onClick={() => setMoreOpen(o => !o)}
             >
-              {moreOpen ? '− Less Info' : '+ More Info'}
+              {moreOpen ? '- Less Info' : '+ More Info'}
             </button>
             <div className={`project-more-info__panel${moreOpen ? ' open' : ''}`}>
               <dl className="project-collaborators">
@@ -134,14 +134,14 @@ export default function Project() {
         <div className="project-nav__inner">
           {prev
             ? <Link to={`/work/${prev.slug}`} className="project-nav__link project-nav__link--prev">
-                <span className="project-nav__dir">← Previous</span>
+                <span className="project-nav__dir">&larr; Previous</span>
                 <span className="project-nav__name">{prev.code}</span>
               </Link>
             : <span />
           }
           {next &&
             <Link to={`/work/${next.slug}`} className="project-nav__link project-nav__link--next">
-              <span className="project-nav__dir">Next →</span>
+              <span className="project-nav__dir">Next &rarr;</span>
               <span className="project-nav__name">{next.code}</span>
             </Link>
           }

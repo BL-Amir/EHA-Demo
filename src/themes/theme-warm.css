@@ -8,6 +8,12 @@
   --white:    #f5f0e8;
   --hover-bg: #ede5d8;
   --overlay:  rgba(28, 18, 8, 0.45);
+  --news-rule: rgba(28, 18, 8, 0.14);
+  --news-graphic-wash: rgba(28, 18, 8, 0.05);
+  --news-line: rgba(28, 18, 8, 0.3);
+  --news-line-strong: rgba(28, 18, 8, 0.52);
+  --news-line-soft: rgba(28, 18, 8, 0.16);
+  --news-line-fine: rgba(28, 18, 8, 0.1);
 }
 
 [data-theme="warm"] body {
