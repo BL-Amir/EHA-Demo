@@ -10,7 +10,7 @@ export default function Hero() {
           muted
           loop
           playsInline
-          poster="/assets/images/18 WHG/_DSC4340.jpg"
+          poster="/assets/images-optimized/18 WHG WEBSITE SELECTION/_DSC4340.webp"
         >
           <source src="/assets/video/fireplace.mp4" type="video/mp4" />
         </video>

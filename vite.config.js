@@ -27,6 +27,18 @@ function serveImagesPlugin() {
   }
 }
 
+function removeLegacyPublicImagesPlugin() {
+  return {
+    name: 'remove-legacy-public-images',
+    closeBundle() {
+      const legacyImagesDir = path.resolve(__dirname, 'dist/assets/images')
+      if (fs.existsSync(legacyImagesDir)) {
+        fs.rmSync(legacyImagesDir, { recursive: true, force: true })
+      }
+    },
+  }
+}
+
 export default defineConfig({
-  plugins: [react(), serveImagesPlugin()],
+  plugins: [react(), serveImagesPlugin(), removeLegacyPublicImagesPlugin()],
 })

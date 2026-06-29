@@ -2,7 +2,7 @@ export const articles = [
   {
     slug: 'the-art-of-restraint',
     date: 'June 2026',
-    image: '/assets/images/news-images/max-bohme-bixyg_ipb88-unsplash.jpg',
+    image: '/assets/images-optimized/news-images/max-bohme-bixyg_ipb88-unsplash.webp',
     imageAlt: 'Subtle layered sand texture with fine horizontal ripples',
     imagePosition: 'center',
     title: 'The Art of Restraint',
@@ -16,7 +16,7 @@ export const articles = [
   {
     slug: 'connecting-home-and-landscape',
     date: 'May 2026',
-    image: '/assets/images/news-images/alexander-mass-xdv8rGTw7Y8-unsplash.jpg',
+    image: '/assets/images-optimized/news-images/alexander-mass-xdv8rGTw7Y8-unsplash.webp',
     imageAlt: 'Layered green leaves in soft natural light',
     imagePosition: 'center',
     title: 'Connecting Home and Landscape',
@@ -30,7 +30,7 @@ export const articles = [
   {
     slug: 'old-houses-new-ways-of-living',
     date: 'April 2026',
-    image: '/assets/images/news-images/Brick%20by%20Window.png',
+    image: '/assets/images-optimized/news-images/Brick by Window.webp',
     imageAlt: 'Brick, stone, glass, and timber material junction beside a window',
     imagePosition: 'center',
     title: 'Old Houses, New Ways of Living',

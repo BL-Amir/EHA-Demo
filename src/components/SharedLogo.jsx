@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { gsap } from 'gsap'
 import LogoReveal from './LogoReveal'
 
-const wordmarkHref = '/assets/images/logos/main-logo-square-alpha%20(no%20logomark).svg'
+const wordmarkHref = '/assets/images-optimized/logos/main-logo-square-alpha%20(no%20logomark).svg'
 
 function prefersReducedMotion() {
   return window.matchMedia('(prefers-reduced-motion: reduce)').matches
