@@ -4,26 +4,43 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EH Architects</title>
-    <script type="module" crossorigin src="/assets/index-BRG-uqCt.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-BYQLnV7s.css">
+    <script type="module" crossorigin src="/assets/index-BAzxqcuO.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-BJ1IHChT.css">
   </head>
   <body>
     <script>
       document.documentElement.dataset.style = 'architectural'
       const t = localStorage.getItem('eh-theme')
-      if (t === 'dark') {
-        document.documentElement.dataset.theme = 'dark'
-      } else if (t === 'classic-dark' || !t) {
+      if (t === 'classic-dark') {
         document.documentElement.dataset.theme = 'classic-dark'
       } else if (t === 'light') {
         delete document.documentElement.dataset.theme
+      } else {
+        document.documentElement.dataset.theme = 'dark'
       }
+      const f = localStorage.getItem('eh-font')
+      document.documentElement.dataset.font =
+        ['space-grotesk', 'jost', 'dm-sans', 'spartan', 'kumbh', 'sofia-sans', 'finlandica', 'cantarell'].indexOf(f) >= 0 ? f : 'space-grotesk'
+      const fb = localStorage.getItem('eh-font-body')
+      document.documentElement.dataset.fontBody =
+        ['hanken', 'space-grotesk', 'jost', 'dm-sans', 'spartan', 'kumbh', 'sofia-sans', 'finlandica', 'cantarell'].indexOf(fb) >= 0 ? fb : 'hanken'
+      const a = localStorage.getItem('eh-accent')
+      document.documentElement.dataset.accent =
+        ['none', 'bronze'].indexOf(a) >= 0 ? a : 'none'
     </script>
     <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
       <input type="hidden" name="form-name" value="contact" />
       <input name="bot-field" />
       <input type="text" name="name" />
       <input type="email" name="email" />
+      <textarea name="message"></textarea>
+    </form>
+    <form name="enquiry" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="hidden" name="form-name" value="enquiry" />
+      <input name="bot-field" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="projectType" />
       <textarea name="message"></textarea>
     </form>
     <div id="root"></div>
