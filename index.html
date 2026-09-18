@@ -6,25 +6,11 @@
     <title>EH Architects</title>
   </head>
   <body>
-    <script>
-      document.documentElement.dataset.style = 'architectural'
-      const t = localStorage.getItem('eh-theme')
-      if (t === 'dark') {
-        document.documentElement.dataset.theme = 'dark'
-      } else if (t === 'classic-dark' || !t) {
-        document.documentElement.dataset.theme = 'classic-dark'
-      } else if (t === 'light') {
-        delete document.documentElement.dataset.theme
-      }
-    </script>
-    <form name="contact" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
-      <input type="hidden" name="form-name" value="contact" />
-      <input name="bot-field" />
-      <input type="text" name="name" />
-      <input type="email" name="email" />
-      <textarea name="message"></textarea>
-    </form>
     <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <script type="module">
+      import { initializeAppearance } from "/src/site/appearance.js";
+      initializeAppearance();
+      import("/src/main.jsx");
+    </script>
   </body>
 </html>
