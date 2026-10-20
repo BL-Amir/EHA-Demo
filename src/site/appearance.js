@@ -59,13 +59,19 @@ export function initializeAppearance() {
   root.dataset.style = "architectural";
   for (const [key, attr, options, fallback] of [
     ["eh-font", "font", headingFonts, "space-grotesk"],
-    ["eh-font-body", "fontBody", bodyFonts, "hanken"],
+    ["eh-font-body", "fontBody", bodyFonts, "dm-sans"],
   ]) {
-    const value = safeRead(key);
+    const value = key === "eh-font-body" && safeRead("eh-body-font-version") !== "1"
+      ? "dm-sans"
+      : safeRead(key);
     root.dataset[attr] = options.some((o) => o.value === value)
       ? value
       : fallback;
   }
+  try {
+    localStorage.setItem("eh-font-body", root.dataset.fontBody);
+    localStorage.setItem("eh-body-font-version", "1");
+  } catch {}
   let accent = safeRead("eh-accent");
   if (
     safeRead("eh-appearance-version") !== "3" ||

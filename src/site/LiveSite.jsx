@@ -299,7 +299,7 @@ function BodySwitcher() {
       attr="fontBody"
       storageKey="eh-font-body"
       options={fy}
-      defaultValue="hanken"
+      defaultValue="dm-sans"
     />
   );
 }
