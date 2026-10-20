@@ -9,7 +9,7 @@ export function applyCustomAppearance() {
  const root=document.documentElement;
  paletteVars.forEach(k=>root.style.removeProperty(k));
  ['--accent','--accent-ink'].forEach(k=>root.style.removeProperty(k));
- const theme=readPreference('eh-theme','dark');
+ const theme=readPreference('eh-theme','classic-dark');
  const tones={'tone-1':'#1f1d1b','brown-1':'#151410','brown-2':'#1a1813','brown-3':'#201d17'};
  if(theme==='custom'||tones[theme]) {
   const saved=tones[theme]||readPreference('eh-custom-palette','#19130f'), bg=validHex(saved)?saved:'#19130f';
@@ -18,8 +18,8 @@ export function applyCustomAppearance() {
   const values=[bg,text,mix(bg,text,.78),mix(bg,text,.65),mix(bg,text,.56),mix(bg,text,.22),mix(bg,text,.06),mix(bg,text,.09),bg,mix(bg,text,.09),mix(bg,text,.12),bg,text,mix(bg,text,.65),mix(bg,text,.22),mix(bg,text,.22)];
   paletteVars.forEach((k,i)=>root.style.setProperty(k,values[i]));
  }
- if(readPreference('eh-accent','orange')==='custom') {
-  const saved=readPreference('eh-custom-accent','#e18a48'), accent=validHex(saved)?saved:'#e18a48';
+ if(readPreference('eh-accent','taupe')==='custom') {
+  const saved=readPreference('eh-custom-accent','#b9b4a5'), accent=validHex(saved)?saved:'#b9b4a5';
   root.dataset.accent='custom';root.style.setProperty('--accent',accent);root.style.setProperty('--accent-ink',luminance(accent)>.179?'#111111':'#ffffff');
  }
 }

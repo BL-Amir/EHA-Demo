@@ -24,7 +24,7 @@ export const articles = [
     body: [
       'A well-designed home does not stop at the external wall. The quality of a room is shaped by what it looks towards, how daylight enters, and how naturally life can move between inside and outside.',
       'This does not always mean large areas of glass. A carefully placed window, a sheltered terrace, or a view held at the end of a hallway can create a stronger connection than an opening made without purpose. The aim is to make landscape part of everyday life, not simply something to look at.',
-      'At EH Architects, landscape is considered from the beginning of the design process. Orientation, privacy, planting, materials, and thresholds all help determine whether a house feels settled, comfortable, and connected to its site.',
+      'At EHArchitects, landscape is considered from the beginning of the design process. Orientation, privacy, planting, materials, and thresholds all help determine whether a house feels settled, comfortable, and connected to its site.',
     ],
   },
   {

@@ -185,7 +185,7 @@ const LogoReveal = forwardRef(function LogoReveal({
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
-      aria-label="EH Architects"
+      aria-label="EHArchitects"
     >
       <defs>
         <mask id={`${maskId}-base`} maskUnits="userSpaceOnUse" x="0" y="0" width="920" height="760">

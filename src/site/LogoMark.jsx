@@ -14,7 +14,7 @@ export const logoMarkGroups = [
   {
     id: 'inner-diagonal',
     label: 'Inner diagonal',
-    points: '366,69 376,69 612,735 555,735 340,135',
+    points: '371,69 381,69 617,735 560,735 345,135',
   },
   {
     id: 'right-diagonal',
@@ -37,7 +37,7 @@ export function LogoMarkShapes({ groupProps }) {
 export default function LogoMark({
   className = '',
   decorative = false,
-  label = 'EH Architects',
+  label = 'EHArchitects',
 }) {
   return (
     <svg

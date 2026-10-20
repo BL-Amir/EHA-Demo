@@ -1,5 +1,6 @@
 import { applyCustomAppearance } from './customAppearance';
 export const accentOptions = [
+ {value:'taupe',label:'Pebble Grey / RAL 7032',dark:'#b9b4a5',light:'#b9b4a5'},
  {value:'none',label:'Neutral'},
  {value:'amber',label:'Amber',dark:'#daa047',light:'#885500'},
  {value:'orange',label:'Orange',dark:'#e18a48',light:'#a54e17'},
@@ -44,9 +45,15 @@ export function initializeAppearance() {
       return null;
     }
   };
-  const theme = safeRead("eh-theme");
-  const validTheme = paletteOptions.includes(theme) ? theme : "dark";
-  try { localStorage.setItem("eh-theme", validTheme); } catch {}
+  // Apply the agreed background once, then retain later demo palette selections.
+  const theme = safeRead("eh-palette-version") === "1"
+    ? safeRead("eh-theme")
+    : "classic-dark";
+  const validTheme = paletteOptions.includes(theme) ? theme : "classic-dark";
+  try {
+    localStorage.setItem("eh-theme", validTheme);
+    localStorage.setItem("eh-palette-version", "1");
+  } catch {}
   if (validTheme === "light") delete root.dataset.theme;
   else root.dataset.theme = validTheme;
   root.dataset.style = "architectural";
@@ -61,14 +68,14 @@ export function initializeAppearance() {
   }
   let accent = safeRead("eh-accent");
   if (
-    safeRead("eh-appearance-version") !== "2" ||
+    safeRead("eh-appearance-version") !== "3" ||
     !accentOptions.some((o) => o.value === accent)
   )
-    accent = "orange";
+    accent = "taupe";
   root.dataset.accent = accent;
   try {
     localStorage.setItem("eh-accent", accent);
-    localStorage.setItem("eh-appearance-version", "2");
+    localStorage.setItem("eh-appearance-version", "3");
   } catch {}
   applyCustomAppearance();
 }

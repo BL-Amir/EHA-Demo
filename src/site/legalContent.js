@@ -5,7 +5,7 @@ export const legalPages = {
     {
       "title": "Your privacy",
       "paragraphs": [
-        "This policy explains how EH Architects handles personal information when you use this website or contact us about our services. EH Architects is responsible for the information it receives."
+        "This policy explains how EHArchitects handles personal information when you use this website or contact us about our services. EHArchitects is responsible for the information it receives."
       ]
     },
     {
@@ -61,7 +61,7 @@ export const legalPages = {
     {
       "title": "Using this website",
       "paragraphs": [
-        "These terms apply to your use of the EH Architects website. The website provides information about our practice, projects and services. Please use it lawfully and respect the rights of others. You must not attempt to gain unauthorised access, introduce malicious software or disrupt the website."
+        "These terms apply to your use of the EHArchitects website. The website provides information about our practice, projects and services. Please use it lawfully and respect the rights of others. You must not attempt to gain unauthorised access, introduce malicious software or disrupt the website."
       ]
     },
     {
@@ -73,14 +73,14 @@ export const legalPages = {
     {
       "title": "Copyright and images",
       "paragraphs": [
-        "The text, designs, photographs, drawings and other material on this website belong to EH Architects or their respective rights holders.",
+        "The text, designs, photographs, drawings and other material on this website belong to EHArchitects or their respective rights holders.",
         "You may view and print material for personal reference, keeping any copyright notices and credits. Other use, including commercial reproduction or publication, requires permission unless permitted by law. Please contact us if you would like to use any material."
       ]
     },
     {
       "title": "Enquiries and professional services",
       "paragraphs": [
-        "An enquiry does not appoint EH Architects or create an agreement to provide professional services. The scope of work, fees, responsibilities and programme are agreed separately in writing before an appointment begins."
+        "An enquiry does not appoint EHArchitects or create an agreement to provide professional services. The scope of work, fees, responsibilities and programme are agreed separately in writing before an appointment begins."
       ]
     },
     {

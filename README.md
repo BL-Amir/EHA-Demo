@@ -24,7 +24,7 @@ The Privacy Policy and Terms & Conditions pages describe this local demo and gen
 Display controls, gallery reorder mode (Shift+E), and display-dock visibility (Shift+D) follow the public version.
 ## Appearance and legal content (September 2026)
 
-Shared font, palette and accent settings live in src/site/appearance.js. This module applies preferences before React mounts. Accent preferences migrate once to version 2 (Orange); later selections persist. The demo controls are hidden at 900px and below.
+Shared font, palette and accent settings live in src/site/appearance.js. This module applies preferences before React mounts. Accent preferences migrate once to version 3 (RAL 7032 Pebble Grey, #B9B4A5); later selections persist. The demo controls are hidden at 900px and below.
 
 Helvetica Bold uses system Helvetica where available and Arial Bold otherwise. Futura uses a system face where available, then the bundled SansSerifFLF geometric substitute, then Jost. These are fallback stacks: licensed Helvetica and Futura webfonts are not included.
 

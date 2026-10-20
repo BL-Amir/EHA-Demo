@@ -146,7 +146,7 @@ const mp = paletteOptions,
   xh = paletteLabels;
 function oy() {
   const a14 = localStorage.getItem("eh-theme");
-  return mp.includes(a14) ? a14 : "dark";
+  return mp.includes(a14) ? a14 : "classic-dark";
 }
 function PaletteSwitcher() {
   const [a14, n] = T.useState(oy),
@@ -310,7 +310,7 @@ function AccentSwitcher() {
       attr="accent"
       storageKey="eh-accent"
       options={hy}
-      defaultValue="orange"
+      defaultValue="taupe"
     />
   );
 }
@@ -356,8 +356,15 @@ function SharedLogo({
         L = (P.height * 0.86) / S.height,
         D = S.width * L,
         z = S.height * L;
+      // Align the visible artwork, accounting for the SVG's internal whitespace.
+      const currentBounds = C.getBoundingClientRect(),
+        artBounds = C.querySelector(".logo-reveal__art")?.getBoundingClientRect(),
+        currentScale = currentBounds.width / S.width,
+        artOffset = artBounds && currentScale > 0
+          ? (artBounds.left - currentBounds.left) / currentScale
+          : 0;
       return {
-        left: P.left + (P.width - D) / 2,
+        left: P.left - artOffset * L,
         top: P.top + (P.height - z) / 2,
         width: S.width,
         scale: L,
@@ -483,7 +490,7 @@ function SharedLogo({
         <Se
           to="/"
           className="shared-logo__link"
-          aria-label="EH Architects home"
+          aria-label="EHArchitects home"
         >
           <div className={`loading-brand${r ? " loading-brand--drawn" : ""}`}>
             <LogoReveal
@@ -498,7 +505,8 @@ function SharedLogo({
     )
   );
 }
-function Hero() {
+function Hero({ entered }) {
+  useScrollReveal(".hero__label, .hero__heading", entered);
   return (
     <section className="hero">
       <div className="hero__image-wrap">
@@ -514,14 +522,14 @@ function Hero() {
         </video>
       </div>
       <div className="hero__text">
-        <span className="hero__label">
+        <span className="hero__label reveal" data-reveal-delay="0">
           {"Architects, Masterplanners & Designers"}
         </span>
         <div className="hero__statement">
           <a href="#work" className="hero__scroll-cue" aria-label="Scroll down">
             <span className="hero__scroll-line" />
           </a>
-          <h1 className="hero__heading">
+          <h1 className="hero__heading reveal" data-reveal-delay="180">
             {"Architecture"}
             <br />
             {"with Intention."}
@@ -572,12 +580,12 @@ const forthcomingProjects = [
       collaborators: [
         {
           role: "Architect",
-          name: "EH Architects",
+          name: "EHArchitects",
           link: "/about",
         },
         {
           role: "Interior Design",
-          name: "EH Architects",
+          name: "EHArchitects",
         },
       ],
       coverImg: "/assets/images/18 WHG WEBSITE SELECTION/_DSC4340.jpg",
@@ -620,12 +628,12 @@ const forthcomingProjects = [
       collaborators: [
         {
           role: "Architect",
-          name: "EH Architects",
+          name: "EHArchitects",
           link: "/about",
         },
         {
           role: "Interior Design",
-          name: "EH Architects",
+          name: "EHArchitects",
         },
       ],
       coverImg: "/assets/images/242 WL WEBSITE SELECTION/_DSC4907.jpg",
@@ -667,12 +675,12 @@ const forthcomingProjects = [
       collaborators: [
         {
           role: "Architect",
-          name: "EH Architects",
+          name: "EHArchitects",
           link: "/about",
         },
         {
           role: "Interior Design",
-          name: "EH Architects",
+          name: "EHArchitects",
         },
       ],
       coverImg: "/assets/images/50 CR WEBSITE SELECTION/_DSC3757.jpg",
@@ -708,12 +716,12 @@ const forthcomingProjects = [
       collaborators: [
         {
           role: "Architect",
-          name: "EH Architects",
+          name: "EHArchitects",
           link: "/about",
         },
         {
           role: "Interior Design",
-          name: "EH Architects",
+          name: "EHArchitects",
         },
       ],
       coverImg: "/assets/images/27 WA WEBSITE SELECTION/_DSC7447.jpg",
@@ -746,12 +754,12 @@ const forthcomingProjects = [
       collaborators: [
         {
           role: "Architect",
-          name: "EH Architects",
+          name: "EHArchitects",
           link: "/about",
         },
         {
           role: "Interior Design",
-          name: "EH Architects",
+          name: "EHArchitects",
         },
       ],
       coverImg: "/assets/images/15B BR WEBSITE SELECTION/_DSC4063-HDR.jpg",
@@ -958,11 +966,12 @@ function NewsMedia({ article: a14, className: n = "" }) {
   );
 }
 function NewsSection() {
+  useScrollReveal(".news .news__feature, .news .news__item");
   const [a14, ...n] = articles;
   return (
     <section className="news" id="news">
       <div className="news__editorial">
-        <Se to={`/news/${a14.slug}`} className="news__feature">
+        <Se to={`/news/${a14.slug}`} className="news__feature" data-reveal-delay="0">
           <div className="news__feature-copy">
             <span className="news__date">{a14.date}</span>
             <h3 className="news__feature-title">{a14.title}</h3>
@@ -972,8 +981,8 @@ function NewsSection() {
           <NewsMedia article={a14} className="news__feature-visual" />
         </Se>
         <div className="news__supporting">
-          {n.map((r) => (
-            <Se to={`/news/${r.slug}`} className="news__item" key={r.slug}>
+          {n.map((r, index) => (
+            <Se to={`/news/${r.slug}`} className="news__item" key={r.slug} data-reveal-delay={(index + 1) * 180}>
               <NewsMedia article={r} className="news__item-media" />
               <span className="news__date">{r.date}</span>
               <h3 className="news__title">{r.title}</h3>
@@ -1211,7 +1220,7 @@ function Footer() {
       <div className="footer__inner">
         <div className="footer__brand-wrap">
           <Z0 />
-          <span className="footer__brand">{"EH Architects"}</span>
+          <span className="footer__brand">{"EHArchitects"}</span>
         </div>
         <nav className="footer__links" aria-label="Legal">
           <Se to="/privacy-policy" className="footer__link">
@@ -1238,7 +1247,7 @@ function Footer() {
         <span className="footer__copy">
           <span className="footer__copyright-symbol">{"\xA9"}</span>{" "}
           {/* @__PURE__ */ new Date().getFullYear()}
-          {" EH Architects"}
+          {" EHArchitects"}
         </span>
       </div>
     </footer>
@@ -1280,33 +1289,44 @@ function useSmoothScroll() {
     );
   }, []);
 }
-function useScrollReveal(a14) {
-  T.useEffect(() => {
-    const n = document.querySelectorAll(a14);
-    if (!n.length) return;
-    n.forEach((s) => s.classList.add("reveal"));
-    const r = new IntersectionObserver(
-      (s) => {
-        s.forEach((l) => {
-          if (l.isIntersecting) {
-            const f = [
-              ...l.target.parentElement.querySelectorAll(
-                ".reveal:not(.visible)",
-              ),
-            ].indexOf(l.target);
-            (setTimeout(() => l.target.classList.add("visible"), f * 80),
-              r.unobserve(l.target));
-          }
-        });
-      },
-      {
-        threshold: 0.12,
-      },
-    );
-    return (n.forEach((s) => r.observe(s)), () => r.disconnect());
-  }, []);
+function useScrollReveal(selector, enabled = true, resetKey = null) {
+  const { pathname } = at();
+  T.useLayoutEffect(() => {
+    if (!enabled) return;
+    const nodes = [...document.querySelectorAll(selector)];
+    if (!nodes.length) return;
+    nodes.forEach((node) => {
+      node.classList.add("reveal");
+      node.classList.remove("visible");
+    });
+    if (prefersReducedMotion()) {
+      nodes.forEach((node) => node.classList.add("visible"));
+      return;
+    }
+    const timers = new Set();
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(({ target, isIntersecting }) => {
+        if (!isIntersecting) return;
+        const index = [...target.parentElement.querySelectorAll(".reveal:not(.visible)")].indexOf(target);
+        const delay = target.dataset.revealDelay !== undefined
+          ? Number(target.dataset.revealDelay)
+          : Math.max(0, index) * 80;
+        const timer = window.setTimeout(() => {
+          target.classList.add("visible");
+          timers.delete(timer);
+        }, delay);
+        timers.add(timer);
+        observer.unobserve(target);
+      });
+    }, { threshold: 0.12 });
+    nodes.forEach((node) => observer.observe(node));
+    return () => {
+      observer.disconnect();
+      timers.forEach((timer) => window.clearTimeout(timer));
+    };
+  }, [selector, enabled, pathname, resetKey]);
 }
-function HomePage() {
+function HomePage({ introComplete }) {
   const { hash: a14 } = at();
   return (
     useSmoothScroll(),
@@ -1325,7 +1345,7 @@ function HomePage() {
     }, [a14]),
     (
       <main>
-        <Hero />
+        <Hero entered={introComplete} />
         <SelectedWork />
         <NewsSection />
         <ContactSection />
@@ -1689,7 +1709,7 @@ function ProjectPage() {
       (w(f), p(null), _(false));
     }, [a14]),
     useScrollReveal(
-      ".project-gallery__pair, .project-gallery__full, .project-gallery__grid",
+      ".project-info__code, .project-gallery__pair, .project-gallery__full, .project-gallery__grid",
     ),
     l === -1)
   )
@@ -2030,19 +2050,20 @@ const f1 = [
   }
 ];
 function AboutPage() {
+  useScrollReveal(".about-hero__title, .about-hero__description, .about-hero__media, .about-services__eyebrow, .about-services__list, .about-overview__eyebrow, .about-overview__cols");
   const [a14, n] = T.useState(null);
   return (
     <main className="about-page">
       <section className="about-hero">
         <div className="about-hero__col">
-          <h1 className="about-hero__title">
+          <h1 className="about-hero__title" data-reveal-delay="0">
             {
               "Make room for what comes next."
             }
           </h1>
-          <div className="about-hero__description"><p className="about-hero__body">
+          <div className="about-hero__description" data-reveal-delay="180"><p className="about-hero__body">
             {
-              "A growing family. A new way of working. A building ready for another chapter. The reason to build often arrives before the idea of what to build. At EH Architects, we help you make that leap: from a need for change to a place that makes it possible."
+              "A growing family. A new way of working. A building ready for another chapter. The reason to build often arrives before the idea of what to build. At EHArchitects, we help you make that leap: from a need for change to a place that makes it possible."
             }
           </p>
           <div className="about-hero__byline">
@@ -2053,16 +2074,17 @@ function AboutPage() {
         </div>
         <div
           className="about-hero__media img-placeholder"
+          data-reveal-delay="360"
           aria-label="Studio image — placeholder"
         >
           <span>{"About image"}</span>
         </div>
       </section>
       <section className="about-services">
-        <span className="about-services__eyebrow section-label">
+        <span className="about-services__eyebrow section-label" data-reveal-delay="0">
           {"What we do"}
         </span>
-        <div className="about-services__list">
+        <div className="about-services__list" data-reveal-delay="180">
           {f1.map((r, s) => {
             const l = a14 === s;
             return (
@@ -2095,10 +2117,10 @@ function AboutPage() {
         </div>
       </section>
       <section className="about-overview">
-        <span className="about-overview__eyebrow section-label">
+        <span className="about-overview__eyebrow section-label" data-reveal-delay="0">
           {"Working together"}
         </span>
-        <div className="about-overview__cols">
+        <div className="about-overview__cols" data-reveal-delay="180">
           <div className="about-overview__left">
             <h2 className="about-overview__heading">
               {"You bring the ambition. We work out the architecture."}
@@ -2107,7 +2129,7 @@ function AboutPage() {
           <div className="about-overview__right">
             <p className="about-overview__body">
               {
-                "You do not need a finished brief to begin. Bring the things you want to make possible, the frustrations you want to leave behind and the questions you have yet to answer. We use drawings and conversation to give those ideas shape, making the choices clear as the project develops. Established in 2009, EH Architects works on homes and commercial spaces in London."
+                "You do not need a finished brief to begin. Bring the things you want to make possible, the frustrations you want to leave behind and the questions you have yet to answer. We use drawings and conversation to give those ideas shape, making the choices clear as the project develops. Established in 2009, EHArchitects works on homes and commercial spaces in London."
               }
             </p>
             <dl className="about-overview__facts">
@@ -2126,42 +2148,60 @@ function AboutPage() {
     </main>
   );
 }
-function NewsPage() {
-  const [a14, ...n] = articles;
+function NewsPage({ layout = "list" }) {
+  useScrollReveal(".news-page__header, .news-page__row, .news-page__feature, .news-page:not(.news-page--list) .news-page__item", true, layout);
   return (
-    useScrollReveal(".news-page__header, .news-page__feature"),
-    (
-      <div className="news-page">
-        <div className="news-page__header reveal">
-          <h1 className="news-page__title">{"News"}</h1>
-        </div>
-        <Se to={`/news/${a14.slug}`} className="news-page__feature reveal">
-          <div className="news-page__feature-copy">
-            <span className="news-page__date">{a14.date}</span>
-            <h2 className="news-page__feature-title">{a14.title}</h2>
-            <p className="news-page__feature-excerpt">{a14.excerpt}</p>
-            <span className="news__read">{"Read more"}</span>
-          </div>
-          <NewsMedia article={a14} className="news-page__feature-visual" />
-        </Se>
-        <div className="news-page__list">
-          {n.map((r) => (
-            <Se to={`/news/${r.slug}`} className="news-page__item" key={r.slug}>
-              <NewsMedia article={r} className="news-page__item-media" />
-              <span className="news-page__date">{r.date}</span>
-              <div className="news-page__body">
-                <h2 className="news-page__item-title">{r.title}</h2>
-                <p className="news-page__excerpt">{r.excerpt}</p>
-              </div>
-            </Se>
-          ))}
-        </div>
-        <Footer />
+    <main className={`news-page${layout === "list" ? " news-page--list" : ""}`}>
+      <div className="news-page__header reveal" data-reveal-delay="0">
+        <h1 className="news-page__title">News</h1>
       </div>
-    )
+      {layout === "list" ? (
+      <ul className="news-page__list" aria-label="Latest articles">
+        {articles.map((article, index) => (
+          <li className="news-page__row" key={article.slug} data-reveal-delay={(index + 1) * 180}>
+            <Se to={`/news/${article.slug}`} className="news-page__item">
+              <div className="news-page__body">
+                <span className="news-page__date">{article.date}</span>
+                <h2 className="news-page__item-title">{article.title}</h2>
+                <p className="news-page__excerpt">{article.excerpt}</p>
+                <span className="news__read">Read more</span>
+              </div>
+              <NewsMedia article={article} className="news-page__item-media" />
+            </Se>
+          </li>
+        ))}
+      </ul>
+      ) : (
+        <>
+          <Se to={`/news/${articles[0].slug}`} className="news-page__feature" data-reveal-delay="180">
+            <div className="news-page__feature-copy">
+              <span className="news-page__date">{articles[0].date}</span>
+              <h2 className="news-page__feature-title">{articles[0].title}</h2>
+              <p className="news-page__feature-excerpt">{articles[0].excerpt}</p>
+              <span className="news__read">Read more</span>
+            </div>
+            <NewsMedia article={articles[0]} className="news-page__feature-visual" />
+          </Se>
+          <div className="news-page__list">
+            {articles.slice(1).map((article, index) => (
+              <Se to={`/news/${article.slug}`} className="news-page__item" key={article.slug} data-reveal-delay={(index + 2) * 180}>
+                <NewsMedia article={article} className="news-page__item-media" />
+                <span className="news-page__date">{article.date}</span>
+                <div className="news-page__body">
+                  <h2 className="news-page__item-title">{article.title}</h2>
+                  <p className="news-page__excerpt">{article.excerpt}</p>
+                </div>
+              </Se>
+            ))}
+          </div>
+        </>
+      )}
+      <Footer />
+    </main>
   );
 }
 function NewsArticlePage() {
+  useScrollReveal(".article-header__title");
   const { slug: a14 } = op(),
     n = zu(),
     [r, s] = T.useState("entering"),
@@ -2257,6 +2297,7 @@ const m1 = {
   message: "",
 };
 function ContactPage() {
+  useScrollReveal(".contact-page__title, .contact-page__subtitle, .contact-page__body");
   const [a14, n] = T.useState(m1),
     [r, s] = T.useState({}),
     [l, u] = T.useState("idle"),
@@ -2291,17 +2332,17 @@ function ContactPage() {
   return (
     <main className="contact-page">
       <header className="contact-page__header">
-        <h1 className="contact-page__title">
+        <h1 className="contact-page__title" data-reveal-delay="0">
           {"Get in touch"}
           <span className="accent-dot">{"."}</span>
         </h1>
-        <p className="contact-page__subtitle">
+        <p className="contact-page__subtitle" data-reveal-delay="180">
           {
             "Tell us a little about your project and we'll get back to you as soon as possible."
           }
         </p>
       </header>
-      <div className="contact-page__body">
+      <div className="contact-page__body" data-reveal-delay="360">
         {l === "submitted" ? (
           <div className="contact-page__confirm">
             <p className="enquiry__confirm-title">
@@ -2499,12 +2540,11 @@ function LiveSite() {
     [r, s] = T.useState(!playIntro),
     [l, u] = T.useState(playIntro ? "loading" : "docked"),
     [f, d] = T.useState(false),
-    [p, g] = T.useState(() => {
-      try {
-        return localStorage.getItem("eh-dock-hidden") !== "1";
-      } catch {
-        return true;
-      }
+    [p, g] = T.useState(false),
+    [showDemoHint, setShowDemoHint] = T.useState(true),
+    [newsLayout, setNewsLayout] = T.useState(() => {
+      try { return localStorage.getItem("eh-news-layout") === "featured" ? "featured" : "list"; }
+      catch { return "list"; }
     }),
     _ = T.useRef(null),
     y = at();
@@ -2520,11 +2560,16 @@ function LiveSite() {
     S = y.pathname === "/portfolio" || x,
     P = false;
   useIntroScrollLock(C);
+  T.useEffect(() => {
+    if (C || !showDemoHint) return;
+    const timeout = window.setTimeout(() => setShowDemoHint(false), 5500);
+    return () => window.clearTimeout(timeout);
+  }, [C, showDemoHint]);
   return (
     T.useEffect(() => {
       const L = document.documentElement,
         D = localStorage.getItem("eh-theme"),
-        z = paletteOptions.includes(D) ? D : "dark";
+        z = paletteOptions.includes(D) ? D : "classic-dark";
       (z === "light" ? delete L.dataset.theme : (L.dataset.theme = z),
         (L.dataset.style = "architectural"));
     }, []),
@@ -2547,13 +2592,8 @@ function LiveSite() {
           (!D.shiftKey && !D.ctrlKey && !D.metaKey && !D.altKey && !D.repeat &&
             (D.key === "D" || D.key === "d") &&
             (D.preventDefault(),
-            g((G) => {
-              const B = !G;
-              try {
-                localStorage.setItem("eh-dock-hidden", B ? "0" : "1");
-              } catch {}
-              return B;
-            })));
+            setShowDemoHint(false),
+            g((G) => !G)));
       };
       return (
         window.addEventListener("keydown", L),
@@ -2580,6 +2620,11 @@ function LiveSite() {
           sharedLogoActive={true}
           onScrolledChange={d}
         />
+        {!C && !p && showDemoHint && (
+          <div className="demo-panel-hint" role="status">
+            Press <kbd>D</kbd> to open the demo panel
+          </div>
+        )}
         {!C && p && (
           <div
             className={`switcher-dock${S ? " switcher-dock--portfolio" : ""}${x ? " switcher-dock--project" : ""}`}
@@ -2602,15 +2647,29 @@ function LiveSite() {
               <span className="switcher-control__label">{"Palette"}</span>
               <ColourControl kind="palette" />
             </div>
+            {y.pathname === "/news" && (
+              <div className="switcher-control switcher-control--news-layout">
+                <label className="switcher-control__label" htmlFor="demo-news-layout">News layout</label>
+                <select id="demo-news-layout" className="theme-switcher" value={newsLayout}
+                  onChange={(event) => {
+                    const value = event.target.value;
+                    setNewsLayout(value);
+                    try { localStorage.setItem("eh-news-layout", value); } catch {}
+                  }}>
+                  <option value="featured">Staggered</option>
+                  <option value="list">List</option>
+                </select>
+              </div>
+            )}
           </div>
         )}
         <Routes>
-          <Un path="/" element={<HomePage />} />
+          <Un path="/" element={<HomePage introComplete={!C} />} />
           <Un path="/work/*" element={<LegacyPortfolioRedirect />} />
           <Un path="/portfolio" element={<PortfolioPage />} />
           <Un path="/portfolio/:slug" element={<ProjectPage />} />
           <Un path="/about" element={<AboutPage />} />
-          <Un path="/news" element={<NewsPage />} />
+          <Un path="/news" element={<NewsPage layout={newsLayout} />} />
           <Un path="/news/:slug" element={<NewsArticlePage />} />
           <Un path="/contact" element={<ContactPage />} />
           <Un path="/privacy-policy" element={<LegalPage kind="privacy" />} />
@@ -2625,12 +2684,13 @@ function LegacyPortfolioRedirect() {
   return <Navigate replace to={location.pathname.replace(/^\/work(?=\/|$)/, '/portfolio') + location.search + location.hash} />;
 }
 function LegalPage({ kind }) {
+  useScrollReveal(".legal-page > header h1");
   const page = legalPages[kind];
   T.useEffect(() => {
-    document.title = page.title + " | EH Architects";
+    document.title = page.title + " | EHArchitects";
     window.scrollTo(0, 0);
     return () => {
-      document.title = "EH Architects";
+      document.title = "EHArchitects";
     };
   }, [page]);
   return (

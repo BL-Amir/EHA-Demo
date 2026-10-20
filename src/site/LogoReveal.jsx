@@ -1,16 +1,18 @@
-import { forwardRef, useEffect, useId, useImperativeHandle, useRef } from 'react'
+import { forwardRef, useLayoutEffect, useId, useImperativeHandle, useRef } from 'react'
 import { gsap } from 'gsap'
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin'
 
 gsap.registerPlugin(DrawSVGPlugin)
+
+const strokeDuration = 0.8
+const strokeDelay = 0.15
+const secondToThirdDelay = 0
 
 const logoRevealPaths = [
   {
     id: 'reveal-1',
     label: 'Base stroke',
     width: 74,
-    duration: 0.7,
-    start: 0,
     cap: 'round',
     d: 'M 423 709 L 107 709',
   },
@@ -18,8 +20,6 @@ const logoRevealPaths = [
     id: 'reveal-2',
     label: 'Left diagonal',
     width: 76,
-    duration: 0.9,
-    start: 0.7,
     cap: 'round',
     d: 'M 139 709 L 398 -6',
   },
@@ -27,17 +27,13 @@ const logoRevealPaths = [
     id: 'reveal-3',
     label: 'Inner diagonal',
     width: 76,
-    duration: 0.85,
-    start: 1.5,
     cap: 'round',
-    d: 'M 346 -7 L 583 709',
+    d: 'M 351 -7 L 588 709',
   },
   {
     id: 'reveal-5',
     label: 'Right diagonal',
     width: 76,
-    duration: 0.95,
-    start: 2.55,
     cap: 'round',
     d: 'M 500 -6 L 785 709',
   },
@@ -45,12 +41,14 @@ const logoRevealPaths = [
     id: 'reveal-4',
     label: 'Crossbar',
     width: 74,
-    duration: 0.75,
-    start: 3.5,
     cap: 'round',
     d: 'M 100 475.5 L 793 475.5',
   },
-]
+].map((path, index) => ({
+  ...path,
+  duration: strokeDuration,
+  start: index * (strokeDuration + strokeDelay) - (index >= 2 ? strokeDelay - secondToThirdDelay : 0),
+}))
 
 const canUseDrawSVG = () => Boolean(gsap.plugins?.drawSVG)
 
@@ -82,6 +80,7 @@ function RevealMaskPath({ revealId }) {
       data-reveal-id={path.id}
       aria-label={path.label}
       d={path.d}
+      visibility="hidden"
       stroke="white"
       strokeWidth={path.width}
       strokeLinecap={path.cap}
@@ -170,7 +169,7 @@ const LogoReveal = forwardRef(function LogoReveal({
 
   useImperativeHandle(ref, () => ({ replay }))
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     replay()
 
     return () => {
@@ -186,7 +185,7 @@ const LogoReveal = forwardRef(function LogoReveal({
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       role="img"
-      aria-label="EH Architects"
+      aria-label="EHArchitects"
     >
       <defs>
         <mask id={`${maskId}-base`} maskUnits="userSpaceOnUse" x="0" y="0" width="920" height="760">
@@ -215,7 +214,7 @@ const LogoReveal = forwardRef(function LogoReveal({
           <polygon points="96,735 366,69 376,69 404,135 182,682" />
         </g>
         <g id="stroke-3" mask={`url(#${maskId}-slants)`}>
-          <polygon points="366,69 376,69 612,735 555,735 340,135" />
+          <polygon points="371,69 381,69 617,735 560,735 345,135" />
           <polygon points="503,69 557,69 813,735 758,735" />
         </g>
         <g id="stroke-4" mask={`url(#${maskId}-crossbar)`}>

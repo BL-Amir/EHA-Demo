@@ -212,7 +212,7 @@ export default function SharedLogo({
       className={`shared-logo shared-logo--${phase}${drawn ? ' shared-logo--drawn' : ''}`}
       data-shared-logo
     >
-      <Link to="/" className="shared-logo__link" aria-label="EH Architects home">
+      <Link to="/" className="shared-logo__link" aria-label="EHArchitects home">
         <div className={`loading-brand${drawn ? ' loading-brand--drawn' : ''}`}>
           <LogoReveal
             className={`loading-screen__svg loading-logo${drawn ? ' loading-logo--drawn' : ''}`}

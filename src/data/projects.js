@@ -37,7 +37,7 @@ export const realProjects = [
     tagline: 'Warmth and proportion in West Hampstead',
     brief: 'A complete interior transformation across a Victorian townhouse in West Hampstead, London. The project sought to balance period proportions with a refined contemporary palette â€” natural materials, restrained detailing, and a considered relationship between light and space.',
     collaborators: [
-      { role: 'Interior Design', name: 'EH Architects' },
+      { role: 'Interior Design', name: 'EHArchitects' },
       { role: 'Photography', name: 'TBC' },
     ],
     coverImg: '/assets/images-optimized/18 WHG WEBSITE SELECTION/_DSC4340.webp',
@@ -69,7 +69,7 @@ export const realProjects = [
     tagline: 'Form and function, West London',
     brief: 'A full refurbishment of a lateral apartment in West London, reworking the floor plan to open up the principal living spaces and introduce a coherent material language throughout. Emphasis was placed on bespoke joinery and the curation of natural stone and timber.',
     collaborators: [
-      { role: 'Interior Design', name: 'EH Architects' },
+      { role: 'Interior Design', name: 'EHArchitects' },
       { role: 'Photography', name: 'TBC' },
     ],
     coverImg: '/assets/images-optimized/242 WL WEBSITE SELECTION/_DSC4907.webp',
@@ -100,7 +100,7 @@ export const realProjects = [
     tagline: 'Garden and light, South West London',
     brief: 'The redesign of a family home in South West London, with a focus on the ground floor living and kitchen spaces. New openings and a considered material palette draw the garden into the interior, creating a fluid relationship between inside and outside.',
     collaborators: [
-      { role: 'Interior Design', name: 'EH Architects' },
+      { role: 'Interior Design', name: 'EHArchitects' },
       { role: 'Photography', name: 'TBC' },
     ],
     coverImg: '/assets/images-optimized/50 CR WEBSITE SELECTION/_DSC3757.webp',
@@ -130,7 +130,7 @@ export const realProjects = [
     tagline: 'Space reimagined, West London',
     brief: 'A whole-house renovation in West London, transforming a tired semi-detached property into a calm, well-considered family home. The design prioritises natural light, a restrained material palette, and the creation of generous, well-proportioned living spaces.',
     collaborators: [
-      { role: 'Interior Design', name: 'EH Architects' },
+      { role: 'Interior Design', name: 'EHArchitects' },
       { role: 'Photography', name: 'TBC' },
     ],
     coverImg: '/assets/images-optimized/27 WA WEBSITE SELECTION/_DSC7447.webp',
@@ -157,7 +157,7 @@ export const realProjects = [
     tagline: 'Period sensitivity, Barnes',
     brief: 'A sensitive refurbishment of a period property in Barnes, respecting the existing architectural character while introducing a contemporary interior sensibility. The project involved the reconfiguration of the upper floors to improve bedroom and bathroom provision.',
     collaborators: [
-      { role: 'Interior Design', name: 'EH Architects' },
+      { role: 'Interior Design', name: 'EHArchitects' },
       { role: 'Photography', name: 'TBC' },
     ],
     coverImg: '/assets/images-optimized/15B BR WEBSITE SELECTION/IMG-20260520-WA0001.webp',

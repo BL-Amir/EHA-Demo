@@ -64,7 +64,7 @@ export default function Nav({
             ? <span className="nav__logo-fallback">EHARCHITECTS</span>
             : <img
                 src="/assets/images/logos/logo-mark.svg"
-                alt="EH Architects"
+                alt="EHArchitects"
                 className="nav__logo-img"
                 onError={() => setLogoError(true)}
               />

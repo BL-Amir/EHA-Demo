@@ -697,24 +697,10 @@ img {
     opacity 0.2s;
   position: relative;
 }
-.nav__links a:after {
-  content: "";
-  position: absolute;
-  bottom: -3px;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--black);
-  transition: width 0.3s var(--ease);
-}
 .nav__links a:hover,
 .nav__links a.active {
   color: var(--black);
   opacity: 1;
-}
-.nav__links a:hover:after,
-.nav__links a.active:after {
-  width: 100%;
 }
 .nav__burger {
   display: none;
@@ -1444,7 +1430,7 @@ img {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--mid);
-  border-bottom: 1px solid color-mix(in srgb, var(--black) 48%, transparent);
+  border-bottom: none;
   padding-bottom: 0.35rem;
   transition:
     color 0.2s,
@@ -1864,7 +1850,8 @@ img {
     border-color 0.2s;
 }
 .news__feature:hover .news__read,
-.news__item:hover .news__read {
+.news__item:hover .news__read,
+.news-page__item:hover .news__read {
   color: var(--black);
   border-color: var(--black);
 }
@@ -1935,11 +1922,11 @@ img {
   stroke: var(--news-line-fine);
 }
 .news-page {
-  padding-top: calc(var(--nav-h) + 5rem);
+  padding-top: calc(var(--nav-h) + 6rem);
   min-height: 100svh;
 }
 .news-page__header {
-  padding: 0 3rem 3rem;
+  padding: 0 0 3rem;
   margin-bottom: 0;
 }
 .news-page__title {
@@ -1952,9 +1939,9 @@ img {
 .news-page__feature {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(320px, 0.72fr);
-  gap: 4rem;
+  gap: 2.75rem;
   align-items: stretch;
-  padding: 0 3rem 5.5rem;
+  padding: 0 0 5rem;
 }
 .news-page__feature-copy {
   display: flex;
@@ -1982,8 +1969,8 @@ img {
 .news-page__list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem;
-  padding: 0 3rem 6rem;
+  gap: 3.5rem 2.75rem;
+  padding: 0 0 9rem;
 }
 .news-page__item {
   display: flex;
@@ -2349,15 +2336,15 @@ img {
     gap: 2rem;
   }
   .news-page {
-    padding-top: calc(var(--nav-h) + 3rem);
+    padding-top: calc(var(--nav-h) + 6rem);
   }
   .news-page__header {
-    padding: 0 1.5rem 2.5rem;
+    padding: 0 0 3rem;
   }
   .news-page__feature {
     grid-template-columns: 1fr;
     gap: 2rem;
-    padding: 0 1.5rem 4rem;
+    padding: 0 0 5rem;
   }
   .news-page__feature-copy {
     min-height: auto;
@@ -2367,8 +2354,8 @@ img {
   }
   .news-page__list {
     grid-template-columns: 1fr;
-    gap: 1.75rem;
-    padding: 0 1.5rem 5rem;
+    gap: 3.5rem;
+    padding: 0 0 9rem;
   }
   .news-page__item {
     padding-top: 1.75rem;
@@ -2398,7 +2385,7 @@ img {
     gap: 1rem;
   }
   .news-page__header {
-    padding: 0 1.5rem 3rem;
+    padding: 0 0 3rem;
   }
   .article-page {
     padding-top: calc(var(--nav-h) + 3rem);
@@ -3969,11 +3956,11 @@ html[data-style="architectural"][data-font-body="helvetica-bold"]
   font-weight: 700;
 }
 html {
-  --accent: #a54e17;
-  --accent-ink: #fff;
+  --accent: #b9b4a5;
+  --accent-ink: #19130f;
 }
 html[data-theme] {
-  --accent: #e18a48;
+  --accent: #b9b4a5;
   --accent-ink: #19130f;
 }
 html[data-accent="orange"] {
@@ -4353,6 +4340,7 @@ html[data-style="architectural"] .about-hero__description {
   }
 }
 .about-page :is(.about-services__eyebrow, .about-overview__eyebrow) {
+  font-family: var(--font-display);
   font-size: clamp(1.375rem, 2vw, 1.75rem);
   letter-spacing: .1em;
 }
@@ -4362,7 +4350,7 @@ html[data-style="architectural"] .about-hero__description {
 .footer__brand-wrap { align-items: flex-end; }
 .footer__brand { line-height: 1; }
 .footer__copy { font-size: .8125rem; }
-.hero__label { font-size: clamp(1.0625rem, 1.3vw, 1.25rem); }
+.hero__label { font-size: clamp(0.95rem, 1.15vw, 1.12rem); }
 
 .footer__copyright-symbol { font-size: 1.2em; line-height: 1; vertical-align: -0.04em; letter-spacing: 0; }
 /* Shared outer gutters; reading columns keep their own line-length limits. */
@@ -4472,4 +4460,195 @@ html[data-style="architectural"] .loading-screen { background-color: var(--bg); 
 }
 @media (prefers-reduced-motion: reduce) {
   .about-services__body-wrap, .about-services__toggle { transition: none; }
+}
+
+/* Brief desktop introduction to the hidden demo controls. */
+.demo-panel-hint {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 9999;
+  overflow: hidden;
+  box-sizing: border-box;
+  max-width: calc(100vw - 64px);
+  padding: 1rem 1.2rem;
+  border: 1px solid #f2f0eb40;
+  background: #10100ee8;
+  color: #f2f0eb;
+  font-family: var(--font-ui);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+  animation: demo-hint-lifetime 5.5s ease both, demo-hint-glow 2s ease-in-out 2;
+}
+.demo-panel-hint kbd {
+  display: inline-block;
+  margin: 0 0.2rem;
+  padding: 0.05rem 0.4rem;
+  border: 1px solid #f2f0eb55;
+  border-radius: 3px;
+  font: inherit;
+}
+.demo-panel-hint::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, #f2f0eb12 50%, transparent 70%);
+  transform: translateX(-120%);
+  animation: demo-hint-shimmer 2.4s ease-in-out 2;
+}
+@keyframes demo-hint-lifetime {
+  0% { opacity: 0; }
+  10%, 80% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@keyframes demo-hint-glow {
+  0%, 100% { box-shadow: 0 0 8px #f2f0eb08; }
+  50% { box-shadow: 0 0 22px #f2f0eb26; }
+}
+@keyframes demo-hint-shimmer {
+  to { transform: translateX(120%); }
+}
+@media (max-width: 900px) {
+  .demo-panel-hint { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .demo-panel-hint { animation: none; }
+  .demo-panel-hint::after { display: none; }
+}
+/* The agreed accent stays the same across the earthy palette options. */
+html[data-accent="taupe"] {
+  --accent: #b9b4a5;
+  --accent-ink: #19130f;
+}
+/* Shared heading hierarchy, independent of the selected display font. */
+:root {
+  --heading-page-size: clamp(2rem, 5vw, 4rem);
+  --heading-feature-size: clamp(2.6rem, 5vw, 5.4rem);
+  --heading-card-size: clamp(1.45rem, 2.2vw, 2rem);
+}
+html[data-style="architectural"] :is(
+  .work-page__title,
+  .news-page__title,
+  .contact-page__title,
+  .article-header__title,
+  .legal-page > header h1,
+  .contact__title
+) {
+  font-size: var(--heading-page-size);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+html[data-style="architectural"] :is(.news__feature-title, .news-page__feature-title) {
+  font-size: var(--heading-feature-size);
+  line-height: 1.08;
+}
+html[data-style="architectural"] :is(.news__title, .news-page__item-title) {
+  font-size: var(--heading-card-size);
+  line-height: 1.18;
+}
+
+/* Use the selected accent for the remaining navigation and contact states. */
+html[data-style="architectural"] body :is(
+  .nav__mobile-menu a,
+  .enquiry__email,
+  .enquiry__confirm-body a,
+  .project-collaborators__link
+):is(:hover, :focus-visible) {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+html[data-style="architectural"] body .project-nav__link:is(:hover, :focus-visible)
+  :is(.project-nav__dir, .project-nav__name, .article-nav__arrow) {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+/* Keep the About introduction close to the services that follow it. */
+html[data-style="architectural"] .about-hero {
+  padding-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+html[data-style="architectural"] .about-hero + .about-services {
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+}
+
+/* Headings and section labels share the same white across the site. */
+html[data-style="architectural"] body :is(
+  h1, h2, h3, h4, h5, h6,
+  .section-label,
+  .about-services__title,
+  .work__title,
+  .work-grid__title,
+  .enquiry__confirm-title
+) {
+  color: #fff;
+}
+/* News index: one chronological article per row. */
+html[data-style="architectural"] .news-page--list .news-page__list {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0 0 9rem;
+}
+.news-page__row { margin: 0; padding: 0; }
+html[data-style="architectural"] .news-page--list .news-page__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.7fr);
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 3rem);
+  padding: 2rem 0;
+  border-top: 1px solid var(--rule);
+}
+.news-page--list .news-page__row:last-child { border-bottom: 1px solid var(--rule); }
+.news-page--list .news-page__item-media {
+  min-height: 0;
+  aspect-ratio: 16 / 10;
+  margin: 0;
+}
+.news-page--list .news-page__body { gap: 0.75rem; min-width: 0; }
+.news-page--list .news-page__date { padding: 0; }
+.news-page--list .news-page__excerpt { max-width: 64ch; }
+@media (max-width: 600px) {
+  html[data-style="architectural"] .news-page--list .news-page__item {
+    grid-template-columns: minmax(0, 1fr) minmax(112px, 36%);
+    align-items: start;
+    gap: 1rem;
+    padding: 1.75rem 0;
+  }
+  .news-page--list .news-page__item-media { aspect-ratio: 1; }
+  .news-page--list .news-page__excerpt { font-size: 1rem; line-height: 1.65; }
+}
+/* Align both sides of the navbar with the shared page gutters. */
+html[data-style="architectural"] .nav { padding-inline: var(--page-gutter); }
+
+/* Larger text balances the News list's larger right-hand images. */
+html[data-style="architectural"] .news-page--list .news-page__item-title {
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  line-height: 1.15;
+}
+.news-page--list .news-page__excerpt {
+  font-size: clamp(1.0625rem, 1.5vw, 1.375rem);
+  line-height: 1.7;
+}
+.news-page--list .news__read { font-size: 0.9rem; margin-top: 0.25rem; }
+/* Compare News layouts from the existing desktop demo controls. */
+.switcher-control--news-layout { grid-column: span 1; }
+.switcher-control--news-layout > select { width: 100%; cursor: pointer; }
+/* Agreed default background, including project sections and navigation. */
+html[data-style="architectural"][data-theme="classic-dark"] {
+  --arch-black: var(--bg);
+  --black: #f2f0eb;
+  --off-black: #e4e0d8;
+  --mid: #aaa49a;
+  --light: #6f6a62;
+}
+html[data-style="architectural"][data-theme="classic-dark"] .nav--project-route {
+  background: #111111eb;
+}
+html[data-style="architectural"][data-theme="classic-dark"] .nav--project-route.scrolled {
+  background: #111111fa;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transition: none; transform: none; }
 }

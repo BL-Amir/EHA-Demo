@@ -18,7 +18,7 @@ export default function AboutPage() {
             </div>
             <div className="about__col--detail">
               <p className="about__detail">
-                Comfortable challenging traditional construction methods and materials, EH Architects brings a thoughtful, thorough process to every project — listening closely, planning carefully, reviewing rigorously, and delivering with precision.
+                Comfortable challenging traditional construction methods and materials, EHArchitects brings a thoughtful, thorough process to every project — listening closely, planning carefully, reviewing rigorously, and delivering with precision.
               </p>
               <dl className="about__facts">
                 <div className="about__facts-row">
